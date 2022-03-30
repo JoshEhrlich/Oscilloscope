@@ -26,3 +26,29 @@ volt2 = sample1[0]
 
 X_new = np.array([])
 Y_new = np.array([])
+
+'''
+
+This is where the manipulation of the waves takes place
+
+'''
+
+# find average "density" of waves
+for i in range(1000):
+    sample_i = X[i]
+    volt_avg_i = np.mean(sample_i[0])
+    X_new = np.append(X_new, [volt_avg_i], axis=0)
+
+# find peaks/crests and then find frequency
+
+avg_frequency = np.array([])
+for i in range(1000):
+    sample_i = X[i]
+    time_i = np.array([])
+    for j in range(100):
+        if ((sample_i[0][j] > sample_i[0][j - 1]) and (sample_i[0][j] > sample_i[0][j + 1])):
+            time_i = np.append(time_i, [sample_i[1][j]], axis=0)
+
+    length = len(time_i)
+    frequency = 100 / length
+    avg_frequency = np.append(avg_frequency, [frequency])
