@@ -52,3 +52,15 @@ for i in range(1000):
     length = len(time_i)
     frequency = 100 / length
     avg_frequency = np.append(avg_frequency, [frequency])
+
+# amount changed between each point#
+
+pts_difference_avg = np.array([])
+for i in range(1000):
+    sample_i = X[i]
+    pts_difference = np.array([])
+    for j in range(99):
+        pts_difference = np.append(pts_difference, [abs(sample_i[0][j] - sample_i[0][j + 1])], axis=0)
+
+    sample_average = np.mean(pts_difference)
+    pts_difference_avg = np.append(pts_difference_avg, [sample_average])
