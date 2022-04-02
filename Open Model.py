@@ -104,3 +104,23 @@ pts_difference_avg = np.transpose(pts_difference_avg)
 X_new_and_pts_diff_avg = np.array([X_new, pts_difference_avg])
 X_new_and_pts_diff_avg = np.squeeze(X_new_and_pts_diff_avg)
 X_new_and_pts_diff_avg = np.transpose(X_new_and_pts_diff_avg)
+
+'''
+
+This is where I actually performed the SVM. I used the stock code from the website we looked at.
+
+'''
+
+'''
+SVM#1 X_new and avg_frequency
+'''
+
+C = 1.0
+svc = svm.SVC(kernel = 'linear', C=1.0).fit(X_new_and_avg_frequency, markers)
+lin_svc = svm.LinearSVC(C=1.0).fit(X_new_and_avg_frequency, markers)
+rbf_svc = svm.SVC(kernel = 'rbf', gamma = 0.7, C=1.0).fit(X_new_and_avg_frequency, markers)
+poly_svc = svm.SVC(kernel = 'poly', degree = 3, C = 1.0).fit(X_new_and_avg_frequency, markers)
+
+
+h = .02  # step size in the mesh
+ 
