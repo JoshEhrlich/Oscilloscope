@@ -123,4 +123,15 @@ poly_svc = svm.SVC(kernel = 'poly', degree = 3, C = 1.0).fit(X_new_and_avg_frequ
 
 
 h = .02  # step size in the mesh
- 
+
+# create a mesh to plot in
+
+x_min, x_max = X_new.min() - 1, X_new.max() + 1
+y_min, y_max = avg_frequency.min() - 1, avg_frequency.max() + 1
+xx, yy = np.meshgrid(np.arange(x_min, x_max, h),
+                         np.arange(y_min, y_max, h))
+# title for the plots
+titles = ['SVC with linear kernel',
+       'LinearSVC (linear kernel)',
+        'SVC with RBF kernel',
+        'SVC with polynomial (degree 3) kernel']
