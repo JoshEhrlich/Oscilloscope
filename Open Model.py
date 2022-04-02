@@ -64,3 +64,43 @@ for i in range(1000):
 
     sample_average = np.mean(pts_difference)
     pts_difference_avg = np.append(pts_difference_avg, [sample_average])
+
+
+'''
+
+Here I did some brutal building of matrices because I couldnt figure out in-house functions to do that
+
+'''
+
+X_new = np.transpose(X_new)
+avg_frequency = np.transpose(avg_frequency)
+
+#Building the classifier array
+markers0 = np.full((250),0)
+markers1 = np.full((250),1)
+markers2 = np.full((250),2)
+markers3 = np.full((250),3)
+
+markers = np.array(markers0)
+markers = np.append(markers, markers1)
+markers = np.append(markers, markers2)
+markers = np.append(markers, markers3)
+markers = np.transpose(markers)
+
+#Re-formatting arrays to match model requirements
+X_new = np.expand_dims(X_new, axis = 0)
+X_new = np.transpose(X_new)
+avg_frequency = np.expand_dims(avg_frequency, axis = 0)
+avg_frequency = np.transpose(avg_frequency)
+
+X_new_and_avg_frequency = np.array([X_new, avg_frequency])
+X_new_and_avg_frequency = np.squeeze(X_new_and_avg_frequency)
+X_new_and_avg_frequency = np.transpose(X_new_and_avg_frequency)
+
+
+pts_difference_avg = np.expand_dims(pts_difference_avg, axis = 0)
+pts_difference_avg = np.transpose(pts_difference_avg)
+
+X_new_and_pts_diff_avg = np.array([X_new, pts_difference_avg])
+X_new_and_pts_diff_avg = np.squeeze(X_new_and_pts_diff_avg)
+X_new_and_pts_diff_avg = np.transpose(X_new_and_pts_diff_avg)
