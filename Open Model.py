@@ -135,3 +135,27 @@ titles = ['SVC with linear kernel',
        'LinearSVC (linear kernel)',
         'SVC with RBF kernel',
         'SVC with polynomial (degree 3) kernel']
+
+for i, clf in enumerate((svc, lin_svc, rbf_svc, poly_svc)):
+     # Plot the decision boundary. For that, we will assign a color to each
+     # point in the mesh [x_min, x_max]x[y_min, y_max].
+     plt.subplot(2, 2, i + 1)
+     plt.subplots_adjust(wspace=0.4, hspace=0.4)
+ 
+     Z = clf.predict(np.c_[xx.ravel(), yy.ravel()])
+ 
+     # Put the result into a color plot
+     Z = Z.reshape(xx.shape)
+     plt.contourf(xx, yy, Z, cmap=plt.cm.coolwarm, alpha=0.8)
+ 
+     # Plot also the training points
+     plt.scatter(X_new, avg_frequency, c=markers, cmap=plt.cm.coolwarm)
+     plt.xlabel('X_new')
+     plt.ylabel('avg_frequency')
+     plt.xlim(xx.min(), xx.max())
+     plt.ylim(yy.min(), yy.max())
+     plt.xticks(())
+     plt.yticks(())
+     plt.title(titles[i])
+ 
+plt.show()
