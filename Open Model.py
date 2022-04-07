@@ -159,3 +159,14 @@ for i, clf in enumerate((svc, lin_svc, rbf_svc, poly_svc)):
      plt.title(titles[i])
  
 plt.show()
+
+'''
+SVM#2 X_new and pts_diff_avg
+'''
+
+
+C = 1.0
+svc = svm.SVC(kernel = 'linear', C=1.0).fit(X_new_and_pts_diff_avg, markers)
+lin_svc = svm.LinearSVC(C=1.0).fit(X_new_and_pts_diff_avg, markers)
+rbf_svc = svm.SVC(kernel = 'rbf', gamma = 0.7, C=1.0).fit(X_new_and_pts_diff_avg, markers)
+poly_svc = svm.SVC(kernel = 'poly', degree = 3, C = 1.0).fit(X_new_and_pts_diff_avg, markers)
