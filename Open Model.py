@@ -208,3 +208,24 @@ for i, clf in enumerate((svc, lin_svc, rbf_svc, poly_svc)):
     plt.title(titles[i])
 
 plt.show()
+
+'''
+
+Here is the code where I tried to actually plot a sin function to
+the waves however, I could not figure out how to do that
+
+'''
+
+# def test(x, a, b):
+#     return a * np.sin(b * x)
+
+# param, param_cov = curve_fit(test, time1, volt1)
+# ans = (param[0]*(np.sin(param[1]*time1)))
+
+# #plt.scatter(volt1, time1)
+# plt.plot(volt1, ans, '--', color = 'red')
+# plt.show()
+
+# print(params)
+
+#how to build those tuples?
